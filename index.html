@@ -129,7 +129,7 @@
         margin-right: auto;
         float: none !important; } }
     /* Styles for screens that are atleast 768px; */
-    @media only screen and (min-width: 48em) {
+    @media (min-width: 48em) {
       .large-1 {
         position: relative;
         width: 33.33333%; }
@@ -221,10 +221,16 @@
 
     #projects ul {
       padding-left: 20px;
+      list-style: none;
+      padding-left: 0;
     }
 
     #projects ul li {
-      padding-bottom: 7px;
+      padding: 3px 4px 4px 4px;
+    }
+
+    #projects ul li:nth-child(even) {
+      background-color: #E8E8E8;
     }
 
     article {
@@ -294,6 +300,21 @@
       font-size: 14px;
     }
 
+    .job-title, .job-details {
+      display: inline-block;
+    }
+
+    @media screen and (max-width: 480px) {
+      .job-title, .job-details {
+        display: block;
+        padding-top: 5px;
+      }
+
+      header small:first-child {
+        margin-left: 0;
+      }
+    }
+
     @media print {
       body {
         line-height: 1;
@@ -359,15 +380,15 @@
       }
 
       #projects {
-        margin-bottom: 0px;
-        padding-bottom: 0px;
+        margin-top: 0px;
+        padding-top: 0px;
+        margin-bottom: 5px;
+        padding-bottom: 5px;
       }
 
       #experience {
-        margin-top: 0px;
-        padding-top: 0px;
-        margin-bottom: 15px;
-        padding-bottom: 15px;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
       }
 
       #education {
@@ -376,6 +397,23 @@
 
       article {
         margin-bottom: 10px;
+      }
+
+      .job-details {
+        display: inline;
+      }
+
+      .job-details small {
+        font-size: 8px;
+        color: #5F665C;
+      }
+
+      .find-me {
+        background-color: white;
+      }
+
+      a {
+        text-decoration: none;
       }
     }
   </style>
@@ -395,48 +433,23 @@
 
   <div class="row main">
     <div class="small-3 large-2 columns">
-      <section id="projects">
-      <h2>Projects</h2>
-        <article>
-          <header>Dish.io</header>
-          <p>
-            A social network for people to send and receive anonymous feedback from trusted friends and colleagues. Single page app on Backbone.js, with Ruby on Rails serving up a JSON API, image hosting on Amazon AWS S3, and home-baked authentication.
-          </p>
-
-        </article>
-
-        <article>
-          <header>Assorted Projects</header>
-          <p>
-            <ul>
-              <li>
-                CRUD forum and dashboard-style apps on Rails with custom form helpers, nested forms, authentication, validations, Bootstrap styles, RESTful routes, aliased ActiveRecord associations, and normalized relational databases.
-              </li>
-              <li>
-                Coffeescript apps with client-side interaction and thrifty DOM management using Backbone.js, JQuery, semantic HTML5 and CSS3 transitions on a Rails JSON API
-              </li>
-              <li>
-                Javascript in-browser games: Tic Tac Toe, Towers of Hanoi, Snake
-              </li>
-              <li>
-                Console games in Ruby: Chess, Checkers, Hangman, Mastermind, Othello, Tic Tac Toe, Minesweeper
-              </li>
-              <li>
-                Mini-ActiveRecord implementation with method-missing and dynamically generated macros
-              </li>
-              <li>
-                Console apps in Ruby consuming Google Maps, Google Places, and Twitter APIs to find nearest ice cream parlors and send tweets
-              </li>
-            </ul>
-          </p>
-
-        </article>
-      </section>
-
       <section id="experience">
-      <h2>Experience</h2>
+        <h2>Experience</h2>
         <article>
-          <header>Technical Analyst<small>Infosys</small><small>3/2010 - 10/2012</small></header>
+          <header>
+            <div class="job-title">Software Engineer</div>
+            <div class="job-details"><small>Bonfire</small><small>9/2013 - 1/2014</small></div>
+          </header>
+          <p>
+            Built the front-end for Weedmaps Deals, a web advertising product for nationwide marijuana dispensaries and patients which increased company monthly revenues by 40%. Architected Weedmaps Deals to be responsive, embeddable into mobile apps, and performant with Backbone and OOCSS. Implemented detailed analytics on deal interactions using Google Analytics, custom metrics and dimensions, and JQuery hooks to monitor all deal-related events on a page.
+          </p>
+        </article>
+
+        <article>
+          <header>
+            <div class="job-title">Technical Analyst</div>
+            <div class="job-details"><small>Infosys</small><small>3/2010 - 10/2012</small></div>
+          </header>
           <p>
             Designed the application environment governance process currently used to enable integration system testing for ATT’s primary customer service portal, which has 1+ billion users per year. Coordinated team of 8 to ensure that environments were available and correctly configured for each release. Drafted API execution sequences, data dictionary, and data flow diagrams to guide test script design.
           </p>
@@ -444,11 +457,43 @@
         </article>
 
         <article>
-          <header>QC Analyst<small>Infosys</small><small>10/2008 - 3/2010</small></header>
+          <header>
+            <div class="job-title">Quality Control Analyst</div>
+            <div class="job-details"><small>Infosys</small><small>10/2008 - 3/2010</small></div>
+          </header>
           <p>
-            Coordinated project intake, resource-to-project allocation, project estimates, capacity planning, and time-sheet synchronization. Developed macro-enabled spreadsheet tools and processes to transform resource allocation planning from a month-long manual activity to an assisted one-time-per-month exercise. Created and curated a suite of streamlined reports to expedite defect tracking, estimation, test status tracking, and root cause analysis.
+            Coordinated project intake, resource-to-project allocation, project estimates, capacity planning, and time-sheet synchronization. Developed macro-enabled spreadsheets to transform resource allocation planning from a month-long manual activity to an assisted one-time-per-month exercise. Created reports to expedite defect tracking, estimation, test status tracking, and root cause analysis.
           </p>
 
+        </article>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <article>
+            <ul>
+              <li>
+                A social network for people to send and receive anonymous feedback from trusted friends and colleagues. Single page app on Backbone.js, with Ruby on Rails serving up a JSON API, image hosting on Amazon AWS S3, and home-baked authentication.
+              </li>
+              <li>
+                CRUD apps on Rails with custom form helpers, nested forms, authentication, validations, Bootstrap styles, and aliased ActiveRecord associations.
+              </li>
+              <li>
+                Coffeescript apps using Backbone.js, JQuery, semantic HTML5 and CSS3 transitions on a Rails JSON API
+              </li>
+              <li>
+                Javascript games: Tic Tac Toe, Towers of Hanoi, Snake
+              </li>
+              <li>
+                Console games in Ruby: Chess, Checkers, Hangman, Mastermind, Othello, Tic Tac Toe, Minesweeper
+              </li>
+              <li>
+                A bare-bones implementation of Rails' ActiveRecord with method-missing and dynamically generated macros
+              </li>
+              <li>
+                Ruby apps consuming Google Maps, Google Places, and Twitter APIs to find nearest ice cream parlors and send tweets
+              </li>
+            </ul>
         </article>
       </section>
     </div>
@@ -515,7 +560,7 @@
   <footer>
     <div class="row hider">
       <div class="find-me small-3 large-3 columns">
-        Find me in San Francisco
+        Find me in Orange County
       </div>
     </div>
     <div class="row">
@@ -523,7 +568,7 @@
         <a href="https://github.com/romangurovich">github.com/romangurovich</a></li>
       </div>
       <div class="small-3 large-1 columns">
-        Call me: <i><a href="tel:1-415-230-0497">415-230-0497</a></i>
+        Call me: <i><a href="tel:1-949-460-9169">949-460-9169</a></i>
       </div>
       <div class="small-3 large-1 columns">
         romangurovich(at)gmail
